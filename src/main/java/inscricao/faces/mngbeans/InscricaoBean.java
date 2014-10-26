@@ -45,6 +45,10 @@ public class InscricaoBean extends PageBean {
     public String confirmaAction() {
         candidato.setDataHora(new Date());
         candidato.setIdioma(idiomas[candidato.getIdioma().getCodigo()-1]);
+        
+        // armazena objeto no ArrayList (AppBean)
+        AppBean appBean = (AppBean) getBean("appBean");
+        appBean.addCandidato(candidato);
         return "confirma";
     }
 }
