@@ -5,18 +5,21 @@ import inscricao.entity.Idioma;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import javax.enterprise.context.RequestScoped;
 import javax.faces.model.SelectItem;
+import javax.inject.Inject;
+import javax.inject.Named;
 import utfpr.faces.support.PageBean;
 
 /**
  *
  * @author Wilson
  */
-@ManagedBean
+@Named
 @RequestScoped
 public class InscricaoBean extends PageBean {
+    @Inject
+    private AppBean appBean;
     private static final Idioma[] idiomas = {
         new Idioma(1, "Inglês"),
         new Idioma(2, "Alemão"),
@@ -47,7 +50,7 @@ public class InscricaoBean extends PageBean {
         candidato.setIdioma(idiomas[candidato.getIdioma().getCodigo()-1]);
         
         // armazena objeto no ArrayList (AppBean)
-        AppBean appBean = (AppBean) getBean("appBean");
+        //AppBean appBean = (AppBean) getBean("appBean");
         appBean.addCandidato(candidato);
         return "confirma";
     }

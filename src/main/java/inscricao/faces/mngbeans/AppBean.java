@@ -7,14 +7,14 @@ package inscricao.faces.mngbeans;
 
 import inscricao.entity.Candidato;
 import java.util.ArrayList;
-import javax.faces.bean.ApplicationScoped;
-import javax.faces.bean.ManagedBean;
+import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Named;
 
 /**
  *
  * @author Gionatta
  */
-@ManagedBean
+@Named
 @ApplicationScoped
 public class AppBean {
     
